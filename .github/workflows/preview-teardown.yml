@@ -1,0 +1,14 @@
+name: Surge.sh Preview Teardown
+
+on:
+  pull_request_target:
+    types: [ closed ]
+
+jobs:
+  preview-teardown:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Teardown surge preview
+        id: deploy
+        run: npx surge teardown https://quarkiverse-io-pr-${{ github.event.number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }} || true
+#Do not comment on the work item, to reduce noise
