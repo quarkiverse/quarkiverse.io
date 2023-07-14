@@ -27,6 +27,16 @@ body {
     justify-content: space-around;
     flex-direction: row;
     column-gap: 50px;
+    row-gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.column {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    row-gap: 30px;
     align-items: center;
 }
 
