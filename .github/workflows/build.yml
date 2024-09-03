@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - main
-  pull_request:
+  workflow_dispatch:
 
 jobs:
-  publication:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,21 +16,38 @@ jobs:
           # Move the placeholder page to the publication directory  
           mkdir site
           cp -r src/* site
-      - name: Store PR id
-        if: "github.event_name == 'pull_request'"
-        run: echo ${{ github.event.number }} > ./site/pr-id.txt
 
       - name: Publishing directory for PR preview
-        if: "github.event_name == 'pull_request'"
         uses: actions/upload-artifact@v4
         with:
           name: site
           path: ./site
           retention-days: 3
 
-      - name: Publication
-        if: "github.ref_name == 'main' && (github.event_name == 'push' || github.event_name == 'schedule')"
-        uses: peaceiris/actions-gh-pages@v4
+  deploy:
+    # Only try and deploy on merged code
+    if: "github.repository == 'quarkiverse/quarkiverse.io' && github.ref_name == 'main' && (github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')"  
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download Built site
+        uses: actions/download-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+          name: site
+          path: _site
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4          
