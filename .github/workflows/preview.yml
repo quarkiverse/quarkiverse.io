@@ -14,8 +14,9 @@ jobs:
       - name: Download Built site
         uses: actions/download-artifact@v4
         with:
+          run-id: ${{ github.event.workflow_run.id }}
           name: site
-          path: _site
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Store PR id as variable
         id: pr
         run: |
