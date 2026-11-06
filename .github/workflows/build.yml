@@ -12,11 +12,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          java-version: 21
+          distribution: temurin
+          cache: maven
       - name: Site generation
         run: |
-          # Move the placeholder page to the publication directory  
+          ./mvnw -B package quarkus:run
           mkdir site
-          cp -r src/* site
+          cp -r target/roq/* site
+        env:
+          QUARKUS_ROQ_GENERATOR_BATCH: true
 
       - name: Publishing directory for PR preview
         uses: actions/upload-artifact@v7
