@@ -26,6 +26,12 @@ jobs:
         env:
           QUARKUS_ROQ_GENERATOR_BATCH: true
 
+      # Publish the theme jar for other sites, in a Maven repository served at https://quarkiverse.io/maven/
+      - name: Publish the theme
+        if: github.ref_name == 'main'
+        run: |
+          ./mvnw -B -f theme/pom.xml deploy -DaltDeploymentRepository=quarkiverse-website::file:${{ github.workspace }}/site/maven
+
       - name: Publishing directory for PR preview
         uses: actions/upload-artifact@v7
         with:
@@ -33,11 +39,34 @@ jobs:
           path: ./site
           retention-days: 3
 
+  theme:
+    name: Theme
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          java-version: 21
+          distribution: temurin
+          cache: maven
+
+      - name: Package the theme
+        run: ./mvnw -B -f theme/pom.xml install
+
+      # quarkiverse.io uses the theme sources directly, so check the packaged jar works in another site
+      - name: Build the example site with the packaged theme
+        working-directory: theme/example-minimal-site
+        run: QUARKUS_ROQ_GENERATOR_BATCH=true ../../mvnw -B package quarkus:run
+
+      - name: Check the example site
+        run: theme/example-minimal-site/verify.sh theme/example-minimal-site/target/roq
+
   deploy:
     # Only try and deploy on merged code
     if: "github.repository == 'quarkiverse/quarkiverse.io' && github.ref_name == 'main' && (github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')"  
     runs-on: ubuntu-latest
-    needs: build
+    needs: [ build, theme ]
     permissions:
       pages: write      # to deploy to Pages
       id-token: write   # to verify the deployment originates from an appropriate source

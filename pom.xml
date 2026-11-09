@@ -59,6 +59,20 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <!-- The theme is developed in place; theme/pom.xml packages it for other sites -->
+            <resource>
+                <directory>theme/src/main/resources</directory>
+                <excludes>
+                    <!-- Only needed in the packaged theme jar -->
+                    <exclude>META-INF/**</exclude>
+                    <exclude>application.properties</exclude>
+                </excludes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>${quarkus.platform.group-id}</groupId>
