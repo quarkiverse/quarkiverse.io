@@ -6,7 +6,7 @@ It provides:
 - the `default` layout (`templates/theme-layouts/quarkiverse/default.html`), based on the Roq base theme, with a
   `footer` section that sites can override,
 - the footer partial (`templates/partials/quarkiverse/footer.html`), for sites that have their own layouts,
-- the footer styles (`web/app/quarkiverse-footer.css`), which join the site's `app` bundle automatically,
+- the footer styles (`web/app/_quarkiverse-footer.css`), imported by the theme's `web/app/main.js`,
 
 ## Using the theme in a site
 

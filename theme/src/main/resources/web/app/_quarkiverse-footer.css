@@ -1,0 +1,105 @@
+/* The Quarkiverse footer, based on the footer styles of the Quarkiverse wiki. */
+
+.quarkiverse-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.quarkiverse-main {
+  flex: 1;
+}
+
+.quarkiverse-footer {
+
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 300;
+  padding: 0.5rem var(--site-margins);
+}
+
+.quarkiverse-footer * {
+  color: inherit;
+  line-height: 1.5;
+}
+
+.quarkiverse-footer a {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.footer-bar {
+  background-color: var(--black);
+  color: var(--white);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-normal);
+}
+
+.footer-anchor-link {
+  margin: 8px;
+  color: var(--white);
+
+  &:link,
+  &:visited {
+    color: var(--white);
+    text-decoration: none;
+  }
+}
+
+.footer-styled-font-awesome-icon {
+  margin-left: 5px;
+}
+
+.footer-license-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.footer-padded-icon {
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.footer-license-text {
+  margin: 8px;
+  &:visited {
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  &:link {
+    color: var(--white);
+    text-decoration: none;
+  }
+}
+
+.quarkiverse-footer-foundation {
+    padding-top: 0.5rem;
+}
+
+.quarkiverse-footer-foundation-logo {
+  display: flex;
+  align-items: center;
+}
+
+.quarkiverse-footer-foundation-logo img {
+  width: 240px;
+  height: auto;
+}
+
+.quarkiverse-footer-legal {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 200;
+  color: var(--grey-1);
+}
+
+.quarkiverse-footer-legal a {
+  color: var(--grey-1);
+}

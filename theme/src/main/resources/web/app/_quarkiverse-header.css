@@ -1,0 +1,21 @@
+
+.header-logo {
+  background-color: var(--black);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: var(--font-weight-bold);
+  margin-left: 7px;
+}
+
+.header-padded-anchor {
+  display: flex;
+  column-gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-padded-icon {
+  height: var(--font-md);
+}

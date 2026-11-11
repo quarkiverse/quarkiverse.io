@@ -1,0 +1,33 @@
+/* Quarkiverse colour palette, available everywhere (every element descends from <html>). */
+html {
+    --black: #000000;
+    --white: #FFFFFF;
+
+    --quarkus-blue: #4695EB;
+    --dark-blue: #09131E;
+    --dark-blue-alt: #0D1C2C;
+    --dark-blue-1: #205894;
+
+    --link: #1259A5;
+    --link-dark-bg: #9BCAFA;
+    --link-light-bg: #1259A5;
+    --link-hover: --red;
+    --link-visited: #AA4494;
+
+    --cta-hover: var(--link-hover);
+
+    --soft-yellow: #FDE9BF;
+    --orange: #E37B40;
+    --light-blue: #e4edf7;
+    --red: #FF004A;
+    --dark-red: #cc0000;
+    --cta-blue: #0B58AB;
+
+    --grey-0: #EFEFEF;
+    --grey-1: #AAAAAA;
+    --grey-2: #555555;
+    --grey-3: #333333;
+    --grey-4: #222222;
+    --dark-grey: #4C4C4C;
+    --light-grey: #DCDCDC;
+}

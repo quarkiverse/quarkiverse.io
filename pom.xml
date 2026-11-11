@@ -40,6 +40,23 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-arc</artifactId>
         </dependency>
+        <!--
+            These web dependencies are duplicated from theme/pom.xml. We use most of the theme's content
+            (see the theme resource directory below) but not its pom, so the dependencies imported by
+            the theme's web/app/main.js must be declared here too. Keep both poms in sync.
+        -->
+        <dependency>
+            <groupId>org.mvnpm.at.fontsource</groupId>
+            <artifactId>open-sans</artifactId>
+            <version>5.0.29</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mvnpm.at.fortawesome</groupId>
+            <artifactId>fontawesome-free</artifactId>
+            <version>6.6.0</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit</artifactId>
