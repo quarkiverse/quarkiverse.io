@@ -48,7 +48,14 @@ jobs:
         env:
           PR_ID: ${{ steps.pr.outputs.id }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-        run: npx surge@0.23.1 ./ --domain "https://quarkiverse-pr-io-${PR_ID}-preview.surge.sh" --token "$SURGE_TOKEN"
+        run: |
+          # Without a token, surge falls back to an interactive login prompt, reads EOF and exits 0,
+          # so nothing is deployed but the job (and the PR comment) would report success.
+          if [[ -z "$SURGE_TOKEN" ]]; then
+            echo "::error::The SURGE_TOKEN secret is not available to this workflow, so the preview cannot be deployed" >&2
+            exit 1
+          fi
+          npx surge@0.23.1 ./ --domain "https://quarkiverse-pr-io-${PR_ID}-preview.surge.sh" --token "$SURGE_TOKEN"
       - name: Update PR status comment on success
         uses: quarkusio/action-helpers@main
         with:
