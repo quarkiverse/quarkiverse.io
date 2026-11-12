@@ -8,17 +8,16 @@
     <name>Quarkiverse Website - Roq Theme</name>
 
     <dependencies>
+        <!-- Imported by web/app/main.js. Compile scope, so sites using the theme get them transitively. -->
         <dependency>
             <groupId>org.mvnpm.at.fontsource</groupId>
             <artifactId>open-sans</artifactId>
             <version>5.0.29</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.mvnpm.at.fortawesome</groupId>
             <artifactId>fontawesome-free</artifactId>
             <version>6.6.0</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 

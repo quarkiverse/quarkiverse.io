@@ -28,6 +28,9 @@ The jar is published in a Maven repository at https://quarkiverse.io/maven/ on e
 </dependency>
 ```
 
+The theme's web dependencies (fonts, icons) come in transitively, and the jar configures the Web Bundler to accept
+them, so there is nothing else to declare.
+
 Then, in the site:
 
 - use `layout: default` for pages; the jar sets `site.theme=quarkiverse`,
