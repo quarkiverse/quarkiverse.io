@@ -89,7 +89,9 @@
 }
 
 .quarkiverse-footer-foundation-logo img {
-  width: 240px;
+  /* The single-line logo is about 9:1, so it needs more width than a stacked one to stay legible */
+  width: 300px;
+  max-width: 100%;
   height: auto;
 }
 
