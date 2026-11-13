@@ -5,12 +5,12 @@
 html,
 body {
     font-family: 'Open Sans', Arial, sans-serif;
-    background-color: white;
+    background-color: var(--white);
 }
 
 * {
     font-family: 'Open Sans', Arial, sans-serif;
-    color: #000c16;
+    color: var(--dark-blue);
     line-height: 1rem;
 }
 
@@ -114,7 +114,7 @@ p {
 .styled-logo {
     font-size: 4rem;
     line-height: 4rem;
-    color: cyan;
+    color: var(--quarkus-blue);
     font-weight: 300;
     text-transform: uppercase;
     text-decoration: none;
@@ -138,9 +138,9 @@ a {
 }
 
 a.button-cta, button, input[type="submit"] {
-    color: #fff;
-    background-color: #4695EB;
-    border: 2px solid #4695EB;
+    color: var(--white);
+    background-color: var(--quarkus-blue);
+    border: 2px solid var(--quarkus-blue);
     border-radius: 10px;
     font-size: 1.2rem;
     font-weight: 600;
@@ -150,14 +150,15 @@ a.button-cta, button, input[type="submit"] {
     text-decoration: none;
     display: inline-block;
     white-space: normal;
+    margin-bottom: 1rem;
 }
 
 a.button-ctak,
 button,
 input[type="submit"] {
-    color: #09131E;
-    background-color: cyan;
-    border: 2px solid cyan;
+    color: var(--dark-blue);
+    background-color: var(--quarkus-blue);
+    border: 2px solid var(--quarkus-blue);
     font-size: 2rem;
     font-weight: 300;
     line-height: 2.5;
@@ -165,8 +166,8 @@ input[type="submit"] {
     text-decoration: none;
 &:hover, &:active, &:focus {
                         background-color: darkblue;
-                        border-color: cyan;
-                        color: cyan;
+                        border-color: var(--quarkus-blue);
+                        color: var(--quarkus-blue);
                         -webkit-box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.75);
                         -moz-box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.75);
                         box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.75);
@@ -180,12 +181,12 @@ input[type="submit"] {
 
 a.button-cta.secondary {
     background: transparent;
-    border: 2px solid cyan;
-    color: cyan;
+    border: 2px solid var(--quarkus-blue);
+    color: var(--quarkus-blue);
 &:hover, &:active, &:focus {
-                        background-color: cyan;
-                        border-color: cyan;
-                        color: #09131E;
+                        background-color: var(--quarkus-blue);
+                        border-color: var(--quarkus-blue);
+                        color: var(--dark-blue);
                         -webkit-box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.75);
                         -moz-box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.75);
                         box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.75);
@@ -193,7 +194,7 @@ a.button-cta.secondary {
 }
 
 form input[type="submit"] {
-    border: 2px solid cyan;
+    border: 2px solid var(--quarkus-blue);
 }
 
 table {
@@ -207,8 +208,8 @@ tbody th {
     font-weight: 400;
     text-align: left;
     padding: 1rem;
-    background-color: cyan;
-    border: 1px solid cyan;
+    background-color: var(--quarkus-blue);
+    border: 1px solid var(--quarkus-blue);
 > div,
 > div > span {
     color: darkblue;
@@ -217,7 +218,7 @@ tbody th {
 
 tbody td {
     padding: .25rem 1rem;
-    border: 1px solid cyan;
+    border: 1px solid var(--quarkus-blue);
 }
 
 tbody tr {
@@ -231,7 +232,7 @@ td p {
 }
 
 mark {
-    background-color: cyan;
+    background-color: var(--quarkus-blue);
     color: darkblue;
 }
 
@@ -240,9 +241,9 @@ dl dt {
 }
 
 code, pre {
-    background-color: black;
-    color: white;
-    border: 1px solid cyan;
+    background-color: var(--black);
+    color: var(--white);
+    border: 1px solid var(--quarkus-blue);
 }
 
 pre {
@@ -257,7 +258,7 @@ table code {
 
 hr {
     border-width: 1px;
-    border-color: cyan;
+    border-color: var(--quarkus-blue);
 }
 
 .full-width-bg {
@@ -284,10 +285,6 @@ hr {
 
 .text-caps {
     text-transform: uppercase;
-}
-
-.text-cyan {
-    color: cyan;
 }
 
 .hide-mobile {
