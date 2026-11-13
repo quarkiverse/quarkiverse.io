@@ -58,7 +58,7 @@ Both are optional, in `config/application.properties`:
 
 | Property | Default |
 | --- | --- |
-| `quarkiverse-website-theme.contribute-url` | `https://github.com/quarkiverse/quarkiverse` |
+| `quarkiverse-website-theme.contribute-url` | the repository GitHub Actions is building (`GITHUB_REPOSITORY`); `quarkiverse/quarkiverse.io` elsewhere |
 | `quarkiverse-website-theme.copyright-holder` | `Quarkiverse` |
 
 `example-minimal-site/` is a complete minimal site.
