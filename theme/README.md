@@ -6,7 +6,7 @@ It provides:
 - the `default` layout (`templates/theme-layouts/quarkiverse/default.html`), based on the Roq base theme, with a
   `footer` section that sites can override,
 - the footer partial (`templates/partials/quarkiverse/footer.html`), for sites that have their own layouts,
-- the footer styles (`web/app/_quarkiverse-footer.css`), imported by the theme's `web/app/main.js`,
+- the footer styles (`web/app/_quarkiverse-footer.css`), imported by the theme's `web/app/quarkiverse-theme.js`,
 
 ## Using the theme in a site
 
@@ -37,6 +37,10 @@ Then, in the site:
 - or, if the site has its own layouts, add `{#include partials/quarkiverse/footer.html /}` where the footer belongs.
   The partial uses the alternative expression syntax, so the site needs `quarkus.qute.alt-expr-syntax=true` in
   `config/application.properties` if it includes the partial from its own templates.
+
+The theme's styles, fonts and icons are bundled automatically. A site's own scripts and styles can go in `web/`
+or `web/app/` as usual and are bundled alongside the theme's; they only need to import the site's own files. Don't name
+a site file `web/app/quarkiverse-theme.js`, as that would replace the theme's.
 
 To override the footer in a layout that extends the theme layout:
 
