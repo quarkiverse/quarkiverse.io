@@ -43,7 +43,7 @@
         <!--
             These web dependencies are duplicated from theme/pom.xml. We use most of the theme's content
             (see the theme resource directory below) but not its pom, so the dependencies imported by
-            the theme's web/app/main.js must be declared here too. Keep both poms in sync.
+            the theme's web/app/quarkiverse-theme.js must be declared here too. Keep both poms in sync.
         -->
         <dependency>
             <groupId>org.mvnpm.at.fontsource</groupId>

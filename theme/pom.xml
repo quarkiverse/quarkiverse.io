@@ -8,7 +8,7 @@
     <name>Quarkiverse Website - Roq Theme</name>
 
     <dependencies>
-        <!-- Imported by web/app/main.js. Compile scope, so sites using the theme get them transitively. -->
+        <!-- Imported by web/app/quarkiverse-theme.js. Compile scope, so sites using the theme get them transitively. -->
         <dependency>
             <groupId>org.mvnpm.at.fontsource</groupId>
             <artifactId>open-sans</artifactId>
