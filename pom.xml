@@ -86,7 +86,6 @@
                 <excludes>
                     <!-- Only needed in the packaged theme jar -->
                     <exclude>META-INF/**</exclude>
-                    <exclude>application.properties</exclude>
                 </excludes>
             </resource>
         </resources>
